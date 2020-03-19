@@ -1,0 +1,38 @@
+<div class="row mt-5">
+    <div class="col-md-12">
+        <!--Card-->
+        <mdb-card cascade="true" narrower="true" class="mt-5">
+            <!--Card image-->
+            <div class="view gradient-card-header blue darken-2">
+                <h4 class="h4-responsive text-white">Edit User</h4>
+            </div>
+            <div class="container">
+                <br>
+                <fieldset>
+                    <label>User Name</label>
+                    <input class="form-control" [(ngModel)]="registrationField.userName" type="text" name="username"
+                        required>
+                </fieldset>
+                <fieldset>
+                    <label>Email</label>
+                    <input class="form-control" [(ngModel)]="registrationField.email" type="text" name="email" required>
+                </fieldset>
+
+                <fieldset>
+                    <label>Password</label>
+                    <input class="form-control" [(ngModel)]="registrationField.password" type="text" name="pasword"
+                        required>
+                </fieldset>
+
+                <fieldset>
+                    <label>Confirm Password</label>
+                    <input class="form-control" [(ngModel)]="registrationField.confirmPassword" type="text"
+                        name="confirmPassword" required>
+                </fieldset>
+                <br>
+                <button class="btn btn-success" (click)="saveUser()">Save</button>
+            </div>
+            <br>
+        </mdb-card>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="col-md-12">
+    <form [formGroup]='professionalRegistrationForm' class="needs-validation"
+        (ngSubmit)="PostData(professionalRegistrationForm)">
+        <h1>Register</h1>
+
+        <p class="text-muted">Create your account</p>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+            </div>
+            <input type="text" class="form-control" formControlName="userName" placeholder="UserName"
+                autocomplete="userName" [ngClass]="{ 'is-invalid': submitted && f.userName?.errors }" required>
+            <div *ngIf="submitted && f.userName?.errors" class="invalid-feedback">
+                <div *ngIf="f.userName?.errors?.required">userName is required</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Email" formControlName="email" autocomplete="email"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+            </div>
+            <input type="number" class="form-control" formControlName="phoneNumber" placeholder="phoneNumber"
+                autocomplete="phoneNumber" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber?.errors }" required>
+            <div *ngIf="submitted && f.phoneNumber?.errors" class="invalid-feedback">
+                <div *ngIf="f.phoneNumber?.errors?.required">phoneNumber is required</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="Password" formControlName="password"
+                autocomplete="new-password" [ngClass]="{ 'is-invalid': submitted && f?.password?.invalid }" required>
+            <div *ngIf="submitted && f.password?.errors" class="invalid-feedback">
+                <div *ngIf="f.password?.errors?.required">Enter Your Password</div>
+            </div>
+        </div>
+        <div class="input-group mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="Repeat password" formControlName="confirmPassword"
+                autocomplete="new-password" [ngClass]="{ 'is-invalid': submitted && f?.confirmPassword?.invalid }"
+                required>
+            <div *ngIf="submitted && f.confirmPassword?.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword?.errors?.required">Please reEnter Your Password
+                </div>
+            </div>
+        </div>
+        <button type="submit" value="Post Data" class="btn btn-block btn-success" (click)="closeModalDialog()"
+            (click)="bsModalRef.hide()">Create
+            Account</button>
+    </form>
+</div>
+<br>

@@ -1,0 +1,56 @@
+<div class="row mt-5">
+    <div class="col-md-12">
+        <!--Card-->
+        <mdb-card cascade="true" narrower="true" class="mt-5">
+            <!--Card image-->
+            <div class="view gradient-card-header blue darken-2">
+                <h4 class="h4-responsive text-white">Registered Users </h4>
+            </div>
+            <div class="modal-header float-right">
+                <button type="submit" class="btn btn-primary" (click)="openModalWithComponent()"><i
+                        class="fa fa-user-plus" aria-hidden="true"></i> Add User</button>
+            </div>
+            <!--/Card image-->
+            <!--Card content-->
+            <mdb-card-body>
+
+
+                <!--Table-->
+                <table class="table">
+
+                    <!--Table head-->
+                    <thead class="mdb-color darken-3">
+                        <tr class="text-white">
+                            <th>User Name</th>
+                            <th>User Email</th>
+                            <th>User Password</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody>
+                        <tr *ngFor=" let user of allUser">
+                            <td>{{user.userName}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.password}}</td>
+                            <td><button class="btn btn-black" (click)="updateUser(user.id)"><i class="fa fa-user-plus"
+                                        aria-hidden="true"></i></button></td>
+                            <td><button class="btn btn-black" (click)="deleteUser(user.id)"><i class="fa fa-trash"
+                                        aria-hidden="true"></i></button></td>
+                        </tr>
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+
+
+
+            </mdb-card-body>
+            <!--/.Card content-->
+        </mdb-card>
+        <!--/.Card-->
+    </div>
+</div>

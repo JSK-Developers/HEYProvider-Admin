@@ -1,0 +1,63 @@
+<div class="row mt-5">
+    <div class="col-md-12">
+        <!--Card-->
+        <mdb-card cascade="true" narrower="true" class="mt-5">
+            <!--Card image-->
+            <div class="view gradient-card-header blue darken-2">
+                <h4 class="h4-responsive text-white">Customer Detail</h4>
+            </div>
+            <!--/Card image-->
+            <!--Card content-->
+            <mdb-card-body>
+
+
+                <!--Table-->
+                <table class="table">
+
+                    <!--Table head-->
+                    <thead class="mdb-color darken-3">
+                        <tr class="text-white">
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Pincode</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody>
+                        <tr *ngFor=" let user of allBookingDetail">
+                            <td>{{user.name}}</td>
+                            <td>{{user.date}}</td>
+                            <td>{{user.time}}</td>
+                            <td>{{user.addresss1}}</td>
+                            <td>{{user.city}}</td>
+                            <td>{{user.pincode}}</td>
+                            <td>{{user.total}}</td>
+                            <td *ngIf="user.activeStatus==0; else notShow">{{pendingStatus}}</td>
+                            <ng-template #notShow>
+                                <td>{{CompleteStatus}}</td>
+                            </ng-template>
+
+                            <td><button class="btn btn-black" (click)="deleteUser(user.id)"><i class="fa fa-trash"
+                                        aria-hidden="true"></i></button></td>
+                        </tr>
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+
+
+
+            </mdb-card-body>
+            <!--/.Card content-->
+        </mdb-card>
+        <!--/.Card-->
+    </div>
+</div>
