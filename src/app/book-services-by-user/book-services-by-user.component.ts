@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BsModalRef } from 'ngx-bootstrap';
 import { BookingService } from '../service/booking.service';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-book-services-by-user',
@@ -9,10 +10,13 @@ import { DatePipe } from '@angular/common';
 })
 export class BookServicesByUserComponent implements OnInit {
   allBookingDetail: any[] = [];
+  bsModalRef: BsModalRef;
   date: Date;
+  id: any;
   constructor(
     private bookingService: BookingService,
-    public datepipe: DatePipe
+    // public datepipe: DatePipe,
+    private router: Router
   ) { }
   pendingStatus = 'pending';
   CompleteStatus = 'Done';
@@ -27,6 +31,11 @@ export class BookServicesByUserComponent implements OnInit {
         this.allBookingDetail = response
       }
     )
+  }
+
+  getServiceDetail(id: any) {
+    console.log(`update ${id}`)
+    this.router.navigate(['services', id]);
   }
 
 }

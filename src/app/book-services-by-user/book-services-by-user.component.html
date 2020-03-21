@@ -22,9 +22,8 @@
                             <th>Time</th>
                             <th>Address</th>
                             <th>City</th>
-                            <th>Pincode</th>
-                            <th>Total</th>
                             <th>Status</th>
+                            <th>Full Detail</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -38,13 +37,13 @@
                             <td>{{user.time}}</td>
                             <td>{{user.addresss1}}</td>
                             <td>{{user.city}}</td>
-                            <td>{{user.pincode}}</td>
-                            <td>{{user.total}}</td>
                             <td *ngIf="user.activeStatus==0; else notShow">{{pendingStatus}}</td>
                             <ng-template #notShow>
                                 <td>{{CompleteStatus}}</td>
                             </ng-template>
-
+                            <td><button type="submit" class="btn btn-primary" (click)="getServiceDetail(user.id)"><i
+                                        class="fa fa-user-plus" aria-hidden="true"></i> Display User Service
+                                    Detail</button></td>
                             <td><button class="btn btn-black" (click)="deleteUser(user.id)"><i class="fa fa-trash"
                                         aria-hidden="true"></i></button></td>
                         </tr>

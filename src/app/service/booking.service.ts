@@ -12,4 +12,7 @@ export class BookingService {
   getAllUser() {
     return this.httpclient.get<BookServicesByUserField[]>('http://localhost:8080/api/AllData');
   }
+  getServiceDetailById(id: any) {
+    return this.httpclient.get<BookServicesByUserField>(`http://localhost:8080/api/serviceDetail/${id}`);
+  }
 }

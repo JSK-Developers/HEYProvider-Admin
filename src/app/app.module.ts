@@ -22,6 +22,7 @@ import { ProfessionalDetailModelComponent } from './professional-registration/pr
 import { BookServicesByUserComponent } from './book-services-by-user/book-services-by-user.component';
 import { EditProfessionalComponent } from './professional-registration/edit-professional/edit-professional.component';
 import { DatePipe } from '@angular/common';
+import { ServiceDetailComponent } from './book-services-by-user/service-detail/service-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DatePipe } from '@angular/common';
     ProfessionalRegistrationComponent,
     ProfessionalDetailModelComponent,
     BookServicesByUserComponent,
-    EditProfessionalComponent
+    EditProfessionalComponent,
+    ServiceDetailComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
