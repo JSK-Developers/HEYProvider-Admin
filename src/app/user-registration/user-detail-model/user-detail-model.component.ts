@@ -23,7 +23,6 @@ export class UserDetailModelComponent implements OnInit {
       userName: '',
       email: '',
       password: '',
-      confirmPassword: ''
     }
   }
   get f() {
@@ -35,7 +34,6 @@ export class UserDetailModelComponent implements OnInit {
       userName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
     })
   }
 
@@ -44,23 +42,20 @@ export class UserDetailModelComponent implements OnInit {
   }
   PostData(_registrationForm: NgForm) {
     this.submitted = true;
-    if (this.registrationForm.get('password')?.value == this.registrationForm.get('confirmPassword')?.value) {
-      if (this.registrationForm.valid) {
-        this.registrationfield.userName = this.registrationForm.get('userName')?.value;
-        this.registrationfield.email = this.registrationForm.get('email')?.value;
-        this.registrationfield.password = this.registrationForm.get('password')?.value;
-        this.registrationfield.confirmPassword = this.registrationForm.get('confirmPassword')?.value;
-        this.userRegistrationServices.registration(this.registrationfield).subscribe(_registrationForm => {
-          this.closeModalDialog();
-          console.log("Registration Success");
-        }, _error => {
-          console.log("Error");
-        }
-
-        )
-      } else {
-        alert('Password not match');
+    if (this.registrationForm.valid) {
+      this.registrationfield.userName = this.registrationForm.get('userName')?.value;
+      this.registrationfield.email = this.registrationForm.get('email')?.value;
+      this.registrationfield.password = this.registrationForm.get('password')?.value;
+      this.userRegistrationServices.registration(this.registrationfield).subscribe(_registrationForm => {
+        this.closeModalDialog();
+        console.log("Registration Success");
+      }, _error => {
+        console.log("Error");
       }
+
+      )
+    } else {
+      alert('Password not match');
     }
   }
 

@@ -31,9 +31,27 @@
                 </fieldset>
 
                 <fieldset>
-                    <label>Confirm Password</label>
-                    <input class="form-control" [(ngModel)]="professionalRegistrationField.confirmPassword" type="text"
-                        name="confirmPassword" required>
+                    <label>Pancard</label>
+                    <input class="form-control" [(ngModel)]="professionalRegistrationField.panNumber" type="text"
+                        name="pasword" required>
+                </fieldset>
+
+                <fieldset>
+                    <label>Adhar Number</label>
+                    <input class="form-control" [(ngModel)]="professionalRegistrationField.adharNumber" type="text"
+                        name="pasword" required>
+                </fieldset>
+
+                <fieldset>
+                    <label>Bank Account Number</label>
+                    <input class="form-control" [(ngModel)]="professionalRegistrationField.bankAccountNumber"
+                        type="text" name="pasword" required>
+                </fieldset>
+
+                <fieldset>
+                    <label>Bank IFSC Code</label>
+                    <input class="form-control" [(ngModel)]="professionalRegistrationField.ifscCode" type="text"
+                        name="pasword" required>
                 </fieldset>
                 <br>
                 <button class="btn btn-success" (click)="saveUser()">Save</button>

@@ -37,5 +37,16 @@ export class BookServicesByUserComponent implements OnInit {
     console.log(`update ${id}`)
     this.router.navigate(['services', id]);
   }
+  deleteMessage: any;
+  deleteUser(id: any) {
+    console.log(`delete ${id}`)
+    this.bookingService.deleteUser(id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.deleteMessage = "Delete User SuccessFul!!"
+        this.refreshUser();
+      }
+    )
+  }
 
 }

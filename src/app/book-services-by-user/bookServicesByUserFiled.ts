@@ -7,6 +7,8 @@ export class BookServicesByUserField {
     landmark: string;
     city: string;
     pincode: number;
+    providerid: number;
+    userid: number;
     providerName: string;
     userName: string;
     end_services_otp: number;

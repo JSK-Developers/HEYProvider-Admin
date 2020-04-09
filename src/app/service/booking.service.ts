@@ -15,4 +15,11 @@ export class BookingService {
   getServiceDetailById(id: any) {
     return this.httpclient.get<BookServicesByUserField>(`http://localhost:8080/api/serviceDetail/${id}`);
   }
+
+  updateDetail(id: any, bookServiceField: any) {
+    return this.httpclient.put(`http://localhost:8080/api/updateService/${id}`, bookServiceField);
+  }
+  deleteUser(id: any) {
+    return this.httpclient.delete(`http://localhost:8080/api/AC_Users/${id}`);
+  }
 }

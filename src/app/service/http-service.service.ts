@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegistrationField } from '../user-registration/field';
 import { Observable } from 'rxjs';
+import { contactUsField } from '../contact-us/contactUsField';
 
 export class UserNameBean {
   constructor(public data = [], ) { }
@@ -19,7 +20,7 @@ export class HttpServiceService {
     let options = {
       headers: httpHeaders
     };
-    return this.httpclient.post(this.ServicesUrl + 'users', registrationField, options)
+    return this.httpclient.post(this.ServicesUrl + 'register', registrationField, options)
   }
   HelloWorld() {
     return this.httpclient.get<UserNameBean>('http://localhost:8080/api/registration/List');
@@ -28,7 +29,9 @@ export class HttpServiceService {
   getAllUser() {
     return this.httpclient.get<RegistrationField[]>('http://localhost:8080/api/registration/List');
   }
-
+  getAllContactUsData() {
+    return this.httpclient.get<contactUsField[]>('http://localhost:8080/apiContactus/Contactus/List');
+  }
   // deleteUser(id) {
   //   return this.httpclient.delete(`http://localhost:8080/api/users/${id}`);
   // }
@@ -41,5 +44,9 @@ export class HttpServiceService {
 
   updateUser(id: any, registrationField: any) {
     return this.httpclient.put(`http://localhost:8080/api/users/${id}`, registrationField);
+  }
+
+  deleteUserData(id: any) {
+    return this.httpclient.delete(`http://localhost:8080/apiContactus/ContactusDetail/${id}`);
   }
 }

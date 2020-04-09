@@ -15,7 +15,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { NavigationModule } from './main-layout/navigation/navigation.module';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { UserDetailModelComponent } from './user-registration/user-detail-model/user-detail-model.component';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { EditUserComponent } from './user-registration/edit-user/edit-user.component';
 import { ProfessionalRegistrationComponent } from './professional-registration/professional-registration.component';
 import { ProfessionalDetailModelComponent } from './professional-registration/professional-detail-model/professional-detail-model.component';
@@ -23,6 +23,7 @@ import { BookServicesByUserComponent } from './book-services-by-user/book-servic
 import { EditProfessionalComponent } from './professional-registration/edit-professional/edit-professional.component';
 import { DatePipe } from '@angular/common';
 import { ServiceDetailComponent } from './book-services-by-user/service-detail/service-detail.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ServiceDetailComponent } from './book-services-by-user/service-detail/s
     ProfessionalDetailModelComponent,
     BookServicesByUserComponent,
     EditProfessionalComponent,
-    ServiceDetailComponent
+    ServiceDetailComponent,
+    ContactUsComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -53,6 +55,7 @@ import { ServiceDetailComponent } from './book-services-by-user/service-detail/s
     HttpClientModule,
     FormsModule,
     DataTablesModule,
+    BsDatepickerModule.forRoot(),
     ReactiveFormsModule
   ],
   providers: [DatePipe],

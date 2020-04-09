@@ -4,5 +4,8 @@ export class ProfessionalRegistrationField {
     email: string;
     phoneNumber: string;
     password: string;
-    confirmPassword: string;
+    panNumber: number;
+    adharNumber: number;
+    bankAccountNumber: number;
+    ifscCode: string;
 }

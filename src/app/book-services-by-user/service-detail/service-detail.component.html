@@ -4,7 +4,7 @@
         <mdb-card cascade="true" narrower="true" class="mt-5">
             <!--Card image-->
             <div class="view gradient-card-header blue darken-2">
-                <h4 class="h4-responsive text-white">Edit User</h4>
+                <h4 class="h4-responsive text-white">Edit Service Deatil</h4>
             </div>
             <div class="container">
                 <br>
@@ -45,18 +45,18 @@
                 </fieldset>
                 <fieldset>
                     <label>Service Provider</label>
-                    <input class="form-control" [(ngModel)]="bookServicesByUserField.providerName" type="text"
-                        name="confirmPassword" required>
+                    <input class="form-control" [(ngModel)]="providerId" type="text" name="confirmPassword"
+                        [disabled]="true" required>
                 </fieldset>
                 <fieldset>
                     <label>User</label>
-                    <input class="form-control" [(ngModel)]="bookServicesByUserField.userName" type="text"
-                        name="confirmPassword" required>
+                    <input class="form-control" [(ngModel)]="userId" type="text" name="confirmPassword"
+                        [disabled]="true" required>
                 </fieldset>
                 <fieldset>
                     <label>OTP</label>
                     <input class="form-control" [(ngModel)]="bookServicesByUserField.end_services_otp" type="text"
-                        name="confirmPassword" required>
+                        name="confirmPassword" [disabled]="true" required>
                 </fieldset>
                 <fieldset>
                     <label>How Much Window AC Service</label>
@@ -98,6 +98,8 @@
                     <input class="form-control" [(ngModel)]="bookServicesByUserField.activeStatus" type="text"
                         name="confirmPassword" required>
                 </fieldset>
+                <br>
+                <button class="btn btn-success" (click)="saveDetail()">Save</button>
             </div>
             <br>
         </mdb-card>

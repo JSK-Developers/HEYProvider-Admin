@@ -13,6 +13,7 @@ import { ProfessionalRegistrationComponent } from './professional-registration/p
 import { BookServicesByUserComponent } from './book-services-by-user/book-services-by-user.component';
 import { EditProfessionalComponent } from './professional-registration/edit-professional/edit-professional.component';
 import { ServiceDetailComponent } from './book-services-by-user/service-detail/service-detail.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 const routes: Route[] = [
@@ -50,7 +51,7 @@ const routes: Route[] = [
   {
     path: 'services', children:
       [
-        { path: 'bookByUser', component: BookServicesByUserComponent },
+        { path: 'services', component: BookServicesByUserComponent },
       ]
   },
   {
@@ -75,6 +76,12 @@ const routes: Route[] = [
     path: 'professional', children:
       [
         { path: ':id', component: EditProfessionalComponent },
+      ]
+  },
+  {
+    path: 'contactUs', children:
+      [
+        { path: 'contactUs', component: ContactUsComponent },
       ]
   },
 

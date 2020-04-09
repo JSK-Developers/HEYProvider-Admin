@@ -24,7 +24,10 @@ export class ProfessionalDetailModelComponent implements OnInit {
       email: '',
       phoneNumber: '',
       password: '',
-      confirmPassword: ''
+      panNumber: 1,
+      adharNumber: 1,
+      bankAccountNumber: 1,
+      ifscCode: ''
     }
   }
   get f() {
@@ -38,6 +41,10 @@ export class ProfessionalDetailModelComponent implements OnInit {
       phoneNumber: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
+      panNumber: ['', Validators.required],
+      adharNumber: ['', Validators.required],
+      bankAccountNumber: ['', Validators.required],
+      ifscCode: ['', Validators.required]
     })
   }
 
@@ -46,23 +53,22 @@ export class ProfessionalDetailModelComponent implements OnInit {
   }
   PostData(_profesionalRegistrationForm: NgForm) {
     this.submitted = true;
-    if (this.professionalRegistrationForm.get('password')?.value == this.professionalRegistrationForm.get('confirmPassword')?.value) {
-      if (this.professionalRegistrationForm.valid) {
-        this.professionalRegistrationField.userName = this.professionalRegistrationForm.get('userName')?.value;
-        this.professionalRegistrationField.email = this.professionalRegistrationForm.get('email')?.value;
-        this.professionalRegistrationField.phoneNumber = this.professionalRegistrationForm.get('phoneNumber')?.value;
-        this.professionalRegistrationField.password = this.professionalRegistrationForm.get('password')?.value;
-        this.professionalRegistrationField.confirmPassword = this.professionalRegistrationForm.get('confirmPassword')?.value;
-        this.professionalService.registration(this.professionalRegistrationField).subscribe(_ProfessionalRegistrationForm => {
-          this.closeModalDialog();
-          console.log('Registration Success');
-        }, _error => {
-          console.log('Error');
-        }
-        )
-      } else {
-        alert('Password Not Match');
+    if (this.professionalRegistrationForm.valid) {
+      this.professionalRegistrationField.userName = this.professionalRegistrationForm.get('userName')?.value;
+      this.professionalRegistrationField.email = this.professionalRegistrationForm.get('email')?.value;
+      this.professionalRegistrationField.phoneNumber = this.professionalRegistrationForm.get('phoneNumber')?.value;
+      this.professionalRegistrationField.password = this.professionalRegistrationForm.get('password')?.value;
+      this.professionalRegistrationField.panNumber = this.professionalRegistrationForm.get('panNumber')?.value;
+      this.professionalRegistrationField.adharNumber = this.professionalRegistrationForm.get('adharNumber')?.value;
+      this.professionalRegistrationField.bankAccountNumber = this.professionalRegistrationForm.get('bankAccountNumber')?.value;
+      this.professionalRegistrationField.ifscCode = this.professionalRegistrationForm.get('ifscCode')?.value;
+      this.professionalService.registration(this.professionalRegistrationField).subscribe(_ProfessionalRegistrationForm => {
+        this.closeModalDialog();
+        console.log('Registration Success');
+      }, _error => {
+        console.log('Error');
       }
+      )
     }
   }
 

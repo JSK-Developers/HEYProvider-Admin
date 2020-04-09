@@ -37,10 +37,8 @@
                             <td>{{user.time}}</td>
                             <td>{{user.addresss1}}</td>
                             <td>{{user.city}}</td>
-                            <td *ngIf="user.activeStatus==0; else notShow">{{pendingStatus}}</td>
-                            <ng-template #notShow>
-                                <td>{{CompleteStatus}}</td>
-                            </ng-template>
+                            <td *ngIf="user.activeStatus==0">{{pendingStatus}}</td>
+                            <td *ngIf="user.activeStatus==1">{{CompleteStatus}}</td>
                             <td><button type="submit" class="btn btn-primary" (click)="getServiceDetail(user.id)"><i
                                         class="fa fa-user-plus" aria-hidden="true"></i> Display User Service
                                     Detail</button></td>
